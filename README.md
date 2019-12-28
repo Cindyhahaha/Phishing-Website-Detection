@@ -25,7 +25,7 @@
 
 一个决策树包含三种类型的节点： 1、决策节点 2、机会节点 3、终结点
 
-![decision%20tree.png](attachment:decision%20tree.png)
+![image](https://github.com/Cindyhahaha/Phishing-Website-Detection/blob/master/screenshots/decision%20tree%20structure.png)
 
 决策树算法本项目中使用的是**决策树C5.0算法**，但会存在以下问题：
 
