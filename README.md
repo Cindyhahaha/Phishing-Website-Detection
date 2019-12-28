@@ -146,3 +146,34 @@ urllib.request
 
     提升是指给每个训练元组赋予权重，迭代地学习k个分类器序列，学习得到分类器Mi之后，更新权重，使得其后的分类器Mi+1“更关注”Mi误分的训练元组，最终提升的分类器M* 组合每个个体分类器，其中每个分类器投票的权重是其准确率的函数。
     在提升的过程中，训练元组的权重根据它们的分类情况调整，如果元组不正确地分类，则它的权重增加，如果元组正确分类，则它的权重减少。元组的权重反映对它们分类的困难程度，权重越高，越可能错误的分类。根据每个分类器的投票，如果一个分类器的误差率越低，提升就赋予它越高的表决权重。在建立分类器的时候，让具有更高表决权重的分类器对具有更高权重的元组进行分类，这样，建立了一个互补的分类器系列。所以能够提高分类的准确性。
+
+## 运行结果
+
+所用数据集：1000条合法url和1000条钓鱼url合并后打乱顺序，并按9:1的比例分为训练集和测试集
+
+输入1：
+```
+https://www.baidu.com
+http://sowalsky.com/dan/bankofamerica/
+https://ranggajonarektrus.000webhostapp.com/
+https://www.google.com
+https://github.com/
+```
+
+输出结果1：
+
+![image](https://github.com/Cindyhahaha/Phishing-Website-Detection/blob/master/screenshots/results-5.png)
+
+可以看出，淘宝网和Github官网都成功识别为legal，另外三个钓鱼网站也已经成功识别为钓鱼网站。
+
+其中一个钓鱼网站 http://sowalsky.com/dan/bankofamerica/ 长这样：
+
+![image](https://github.com/Cindyhahaha/Phishing-Website-Detection/blob/master/screenshots/phishing-swalsky.png)
+
+输入2：位于文件`new_100_legal_test.csv`
+
+输出结果2：
+
+![image](https://github.com/Cindyhahaha/Phishing-Website-Detection/blob/master/screenshots/train_merge_100legal_urls_result.jpg)
+
+可以看出，在100个合法url中，模型预测的准确率达到了97%
